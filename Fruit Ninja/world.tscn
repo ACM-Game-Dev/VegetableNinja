@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://1j4us35s0187"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_yqh7w"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wv3o2"]
+diffuse_texture = SubResource("MeshTexture_yqh7w")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0duva"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpmks"]
+albedo_color = Color(0.996078, 0.305882, 0, 1)
+albedo_texture = SubResource("CanvasTexture_wv3o2")
+metallic = 1.0
+metallic_specular = 0.37
+metallic_texture = SubResource("CanvasTexture_0duva")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e8jq1"]
+material = SubResource("StandardMaterial3D_fpmks")
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.387473, -0.265194, 0.882914, -0.316015, 0.861494, 0.397446, 0, 0, 0)
+light_color = Color(0.137255, 0.670588, 0, 1)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, -3.15948)
+mesh = SubResource("PlaneMesh_e8jq1")

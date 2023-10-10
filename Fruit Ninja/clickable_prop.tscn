@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ngcerj71yhwe"]
+
+[node name="ClickableProp" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
