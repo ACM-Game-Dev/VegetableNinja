@@ -1,7 +1,23 @@
-[gd_scene format=3 uid="uid://ngcerj71yhwe"]
+[gd_scene load_steps=5 format=3 uid="uid://ngcerj71yhwe"]
 
-[node name="ClickableProp" type="Node3D"]
+[ext_resource type="Script" path="res://clickable_prop.gd" id="1_3rpw2"]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5uvou"]
+albedo_color = Color(0, 0.509804, 0.211765, 1)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6ll2u"]
+material = SubResource("StandardMaterial3D_5uvou")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aw1xc"]
+
+[node name="ClickableProp" type="RigidBody3D"]
+constant_torque = Vector3(1, 0.25, 1)
+script = ExtResource("1_3rpw2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_6ll2u")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00373816, 0, -3.92199e-05)
+shape = SubResource("CapsuleShape3D_aw1xc")

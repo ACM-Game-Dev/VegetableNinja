@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1j4us35s0187"]
+[gd_scene load_steps=8 format=3 uid="uid://1j4us35s0187"]
+
+[ext_resource type="Script" path="res://spawner.gd" id="1_un6xg"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_yqh7w"]
 
@@ -17,15 +19,25 @@ metallic_texture = SubResource("CanvasTexture_0duva")
 [sub_resource type="PlaneMesh" id="PlaneMesh_e8jq1"]
 material = SubResource("StandardMaterial3D_fpmks")
 
+[sub_resource type="Curve3D" id="Curve3D_56tbq"]
+
 [node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2463)
+script = ExtResource("1_un6xg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0.387473, -0.265194, 0.882914, -0.316015, 0.861494, 0.397446, 0, 0, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0.387473, -0.265194, 0.882914, -0.316015, 0.861494, 0.397445, 0, 0, 0)
 light_color = Color(0.137255, 0.670588, 0, 1)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.655585, 0.755122, 0, -0.755122, 0.655585, 0, 2.89955, 3.68458)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, 0, 0, -3.15948)
 mesh = SubResource("PlaneMesh_e8jq1")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_56tbq")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
