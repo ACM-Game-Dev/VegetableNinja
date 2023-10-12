@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ngcerj71yhwe"]
+
+[ext_resource type="Script" path="res://3D/objects/clickable_prop.gd" id="1_6iofw"]
+[ext_resource type="ArrayMesh" uid="uid://v00dlhgx0cns" path="res://3D/meshes/Broccoli.obj" id="2_sta3m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_aw1xc"]
+
+[node name="ClickableProp" type="RigidBody3D"]
+constant_torque = Vector3(1, 0.25, 1)
+script = ExtResource("1_6iofw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, -0.426266, 0)
+mesh = ExtResource("2_sta3m")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00373816, 0, -3.92199e-05)
+shape = SubResource("CapsuleShape3D_aw1xc")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

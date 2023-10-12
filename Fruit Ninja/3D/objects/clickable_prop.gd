@@ -10,3 +10,7 @@ func _ready():
 func _process(delta):
 	if position.y < -10:
 		queue_free()
+
+
+func _on_mouse_entered():
+	queue_free()
