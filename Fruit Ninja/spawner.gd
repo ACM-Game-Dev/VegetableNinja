@@ -9,14 +9,8 @@ func spawnProp(location, force,torque):
 	prop.apply_torque_impulse(torque)
 	add_child(prop)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# Spawn a single clickable_prop
-	pass
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if frame_count % 200 == 0: 
-		spawnProp(Vector3(0,0,-2),Vector3(0,10,0),Vector3(10,0,0))
+		spawnProp(Vector3((randf() - 0.5) * 5,0,-2),Vector3((randf() - 0.5) * 5,10,0),Vector3(randf() * 10,0,0))
 	frame_count += 1
